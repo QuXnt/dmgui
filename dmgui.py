@@ -82,20 +82,24 @@ def download():
             
         
 
-def selectdirdest(labelname):
+def selectdirdest(labelname, text):
     global dest
     arg = filedialog.askdirectory()
     dest = arg
     if arg != "":
         labelname.config(text= arg)
+    else:
+        labelname.config(text= text)
 
-def selectdirimg(labelname):
+def selectdirimg(labelname, text):
     global imgdir
     arg = filedialog.askdirectory()
     imgdir = arg
     if arg != "":
         labelname.config(text= arg)
-
+    else:
+        labelname.config(text= text)
+        
 def search_state(*args):
     if init_name == inp.get():
         search_b.config(state= 'disabled')
@@ -250,16 +254,18 @@ openchp = IntVar()
 openchp_box = Checkbutton(mainwin, text= "Open chapters as soon as they finish downloading?", variable= openchp)
 openchp_box.place(x= 230, y= 275, anchor= 'n')
 
-dir_label = Label(mainwin, text= "Select folder to save manga.")
+dir_label_text = "Select folder to save manga."
+dir_label = Label(mainwin, text= dir_label_text)
 dir_label.place(x= 100, y= 310)
 
-dirbrowse_b = Button(mainwin, text= "Browse", command= lambda: selectdirdest(dir_label))
+dirbrowse_b = Button(mainwin, text= "Browse", command= lambda: selectdirdest(dir_label, dir_label_text))
 dirbrowse_b.place(x= 330, y= 310)
 
-img_label = Label(mainwin, text= "Select folder to save downloaded images,\n these will be deleted when program closes.")
+img_label_text = "Select folder to save downloaded images,\n these will be deleted when program closes."
+img_label = Label(mainwin, text= img_label_text)
 img_label.place(x= 80, y= 340)
 
-imgbrowse_b = Button(mainwin, text= "Browse", command= lambda: selectdirimg(img_label))
+imgbrowse_b = Button(mainwin, text= "Browse", command= lambda: selectdirimg(img_label, img_label_text))
 imgbrowse_b.place(x= 330, y= 340)
 
 download_b = Button(mainwin, text= 'Download', command= download)
@@ -269,8 +275,9 @@ download_label = Label(mainwin, text= "Downloading")
 
 progress_bar = ttk.Progressbar(mainwin, length= 200, mode= 'determinate')
 
-ph = PhotoImage(file= "./new.png")
+ph = PhotoImage(file= "./folder.png")
 opendir_b = Button(mainwin, image= ph, command= lambda: os.startfile(dest))
+
 
 quit_b = Button(mainwin, text= "Quit", width= 6, command= sys.exit)
 quit_b.place(x= 430, y= 465)
