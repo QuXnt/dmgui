@@ -278,7 +278,7 @@ quit_b.place(x= 430, y= 465)
 reset_b = Button(mainwin, text= "Reset", width= 6, command= reset)
 reset_b.place(x= 20, y= 465)
 
-cred = Label(mainwin, text= "Made by QuXnt", font= ("Georgia", 12))
+cred = Label(mainwin, text= "Made by QuXnt", font= ("Georgia", 12))                         #Author
 cred.place(x= 190, y= 470)
 
 stuff_to_disable = [name_box, search_b, mangalistbox, openchp_box, startchp_box, endchp_box, dirbrowse_b, imgbrowse_b, reset_b]
