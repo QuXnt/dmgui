@@ -1,0 +1,1 @@
+Simple graphical manga downlaoder for windows based on Python.
