@@ -1,1 +1,1 @@
-Simple graphical manga downlaoder for windows based on Python.
+Simple, easy-to-use graphical manga downlaoder for windows based on Python.
